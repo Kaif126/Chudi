@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import SellerUpload from "./SellerUpload";
 
 
-const [products, setProducts] = useState([
+const initialProducts = [
   {
     id: 1,
     name: "Rose Gold Kada Set",
@@ -42,9 +42,34 @@ const [products, setProducts] = useState([
     image:
       "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=80",
   },
-]);
+];
 
 function App() {
+  const [products, setProducts] = useState(() => {
+  try {
+    const savedProducts = localStorage.getItem("chudi-products");
+
+    return savedProducts
+      ? JSON.parse(savedProducts)
+      : initialProducts;
+  } catch (error) {
+    return initialProducts;
+  }
+});
+
+  function handleAddProduct(newProduct) {
+  setProducts((previousProducts) => [
+    ...previousProducts,
+    newProduct,
+  ]);
+}
+
+function handleSellerRegister(sellerDetails) {
+  setRegisteredSeller(sellerDetails);
+  setShowSellerRegister(false);
+  setShowSellerUpload(true);
+}
+
   const [showCheckout, setShowCheckout] = useState(false);
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orders, setOrders] = useState(() => {
@@ -56,18 +81,12 @@ function App() {
   }
 });
 
-function handleAddProduct(newProduct) {
-  setProducts((previousProducts) => [
-    ...previousProducts,
-    newProduct,
-  ]);
-}
-
 const [confirmedOrder, setConfirmedOrder] = useState(null);
   const [customerName, setCustomerName] = useState("");
 const [customerPhone, setCustomerPhone] = useState("");
 const [customerAddress, setCustomerAddress] = useState("");
   const [showSellerRegister, setShowSellerRegister] = React.useState(false);
+  const [registeredSeller, setRegisteredSeller] = useState(null);
   const [showCart, setShowCart] = useState(false);
   const [showSellerUpload, setShowSellerUpload] = useState(false);
   const [showOrderHistory, setShowOrderHistory] = useState(false);
@@ -90,6 +109,11 @@ const [customerAddress, setCustomerAddress] = useState("");
 useEffect(() => {
   localStorage.setItem("chudi-cart", JSON.stringify(cart));
 }, [cart]);
+
+useEffect(() => {
+  localStorage.setItem("chudi-products", JSON.stringify(products));
+}, [products]);
+
 useEffect(() => {
   localStorage.setItem("chudi-orders", JSON.stringify(orders));
 }, [orders]);
@@ -296,8 +320,8 @@ if (showSellerUpload) {
   );
 }
 
-  if (showSellerRegister) {
-  return <SellerRegister />;
+ if (showSellerRegister) {
+  return <SellerRegister onRegister={handleSellerRegister} />;
 }
 if (showCart) {
   return (
@@ -575,15 +599,21 @@ if (showCart) {
             customers who appreciate your work.
           </p>
           
-        <button
-        className="outline-button"
-        onClick={() => setShowSellerRegister(true)}
-        >
-          <button onClick={() => setShowSellerUpload(true)}>
-  Upload Products
-</button>
-       Start selling
-      </button>
+        <div className="seller-buttons">
+  <button
+    className="outline-button"
+    onClick={() => setShowSellerRegister(true)}
+  >
+    Start Selling
+  </button>
+
+  <button
+    className="outline-button"
+    onClick={() => setShowSellerUpload(true)}
+  >
+    Upload Products
+  </button>
+</div>
 
         </section>
       </main>
