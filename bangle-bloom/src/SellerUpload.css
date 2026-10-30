@@ -1,0 +1,85 @@
+.seller-upload-page {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 24px 16px 40px;
+    background: #faf7f2;
+    color: #3d2b20;
+}
+
+.seller-back-button {
+    padding: 10px 14px;
+    border: 1px solid #d8c8b8;
+    border-radius: 8px;
+    background: transparent;
+    color: #65452f;
+    cursor: pointer;
+}
+
+.seller-upload-card {
+    width: 100%;
+    max-width: 560px;
+    box-sizing: border-box;
+    margin: 28px auto 0;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid #eadfd3;
+    border-radius: 14px;
+}
+
+.seller-upload-card h1 {
+    margin-top: 0;
+}
+
+.seller-upload-card>p {
+    color: #806b59;
+    line-height: 1.5;
+}
+
+.seller-upload-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.seller-upload-card label {
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.seller-upload-card input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #d8c8b8;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.seller-upload-card input:focus {
+    outline: 2px solid #b28a67;
+    outline-offset: 1px;
+}
+
+.seller-submit-button {
+    margin-top: 14px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #65452f;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.seller-submit-button:hover {
+    background: #4d3323;
+}
+
+@media (max-width: 600px) {
+    .seller-upload-card {
+        padding: 20px;
+    }
+}

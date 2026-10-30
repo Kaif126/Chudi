@@ -1,0 +1,126 @@
+.register-page {
+    min-height: 100vh;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f5f0;
+    box-sizing: border-box;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 460px;
+    padding: 42px;
+    background: #ffffff;
+    border: 1px solid #e9e1d8;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.register-logo {
+    display: block;
+    margin-bottom: 38px;
+    color: #9c7058;
+    font-family: Georgia, serif;
+    font-size: 36px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.register-logo span {
+    color: #302820;
+}
+
+.register-eyebrow {
+    color: #9c7058;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.register-card h1 {
+    margin: 14px 0;
+    color: #302820;
+    font-family: Georgia, serif;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.register-description {
+    margin-bottom: 30px;
+    color: #82776c;
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.register-form label {
+    margin-top: 8px;
+    color: #302820;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.register-form input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #e0d7cd;
+    border-radius: 4px;
+    background: #fff;
+    color: #302820;
+    font: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.register-form input:focus {
+    border-color: #9c7058;
+    box-shadow: 0 0 0 2px #9c70581a;
+}
+
+.register-button {
+    margin-top: 18px;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    background: #9c7058;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.register-button:hover {
+    background: #805941;
+}
+
+.register-footer {
+    margin: 28px 0 0;
+    color: #82776c;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    font-style: italic;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .register-card {
+        padding: 28px 22px;
+    }
+
+    .register-card h1 {
+        font-size: 29px;
+    }
+}
